@@ -156,12 +156,12 @@ const IndexPage = ({
     <Wrapper p={4} mb={[4, 4, 7]} mx="auto" justifyContent="space-between" flexWrap="wrap">
       {edges.map(c => (
         <GridItem
-          uid={c.node.uid}
-          key={c.node.uid}
-          sizes={c.node.data.header_image.localFile.childImageSharp.sizes}
-          alt={c.node.data.title.text}
-          title={c.node.data.title.text}
-          subtitle={c.node.data.subtitle.text}
+          uid={c.node.fields.slug}
+          key={c.node.fields.slug}
+          sizes={c.node.frontmatter.image.childImageSharp.sizes}
+          alt={c.node.frontmatter.title}
+          title={c.node.frontmatter.title}
+          subtitle={c.node.frontmatter.type}
         />
       ))}
     </Wrapper>
@@ -243,32 +243,28 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    caseStudies: allPrismicCaseStudy(sort: { fields: [last_publication_date], order: DESC }) {
+    caseStudies: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          uid
-          data {
-            header_image {
-              localFile {
-                childImageSharp {
-                  sizes(
-                    maxWidth: 900
-                    maxHeight: 900
-                    quality: 90
-                    traceSVG: { color: "#021212" }
-                    cropFocus: ENTROPY
-                  ) {
-                    ...GatsbyImageSharpSizes_withWebp_tracedSVG
-                  }
+          fields {
+            slug
+          }
+          frontmatter {
+            image {
+              childImageSharp {
+                sizes(
+                  maxWidth: 900
+                  maxHeight: 900
+                  quality: 90
+                  traceSVG: { color: "#021212" }
+                  cropFocus: ENTROPY
+                ) {
+                  ...GatsbyImageSharpSizes_withWebp_tracedSVG
                 }
               }
             }
-            title {
-              text
-            }
-            subtitle {
-              text
-            }
+            title
+            type
           }
         }
       }

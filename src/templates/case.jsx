@@ -91,21 +91,20 @@ const Content = styled.main`
   }
 `;
 
-const CaseTemplate = ({ data: { prismicCaseStudy: caseNode } }) => {
-  const { data } = caseNode;
+const CaseTemplate = ({ data: { markdownRemark: caseNode } }) => {
   return (
     <Layout>
-      <Helmet title={`${data.title.text} | ${config.siteTitle}`} />
-      <SEO caseNode={caseNode} casePath={caseNode.uid} caseSEO />
+      <Helmet title={`${caseNode.frontmatter.title} | ${config.siteTitle}`} />
+      <SEO caseNode={caseNode} casePath={caseNode.fields.slug} caseSEO />
       <Hero>
-        <Image sizes={data.header_image.localFile.childImageSharp.sizes} />
+        <Image sizes={caseNode.frontmatter.image.childImageSharp.sizes} />
         <TitleWrapper py={4}>
-          <Title>{data.title.text}</Title>
+          <Title>{caseNode.frontmatter.title}</Title>
         </TitleWrapper>
       </Hero>
       <Wrapper py={4} px={4} mx="auto">
-        <SubTitle>{data.subtitle.text}</SubTitle>
-        <Content dangerouslySetInnerHTML={{ __html: data.content.html }} />
+        <SubTitle>{caseNode.frontmatter.type}</SubTitle>
+        <Content dangerouslySetInnerHTML={{ __html: caseNode.html }} />
       </Wrapper>
       <Footer isCase />
     </Layout>
@@ -116,38 +115,32 @@ export default CaseTemplate;
 
 CaseTemplate.propTypes = {
   data: PropTypes.shape({
-    prismicCaseStudy: PropTypes.object.isRequired,
+    markdownRemark: PropTypes.object.isRequired,
   }).isRequired,
 };
 
 export const pageQuery = graphql`
-  query CaseBySlug($uid: String!) {
-    prismicCaseStudy(uid: { eq: $uid }) {
-      uid
-      first_publication_date
-      last_publication_date
-      data {
-        header_image {
-          localFile {
-            childImageSharp {
-              sizes(maxWidth: 1920, quality: 90, traceSVG: { color: "#021212" }) {
-                ...GatsbyImageSharpSizes_withWebp_tracedSVG
-              }
-              resize(width: 800) {
-                src
-              }
+  query CaseBySlug($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt
+      html
+      fields {
+        slug
+      }
+      frontmatter {
+        image {
+          childImageSharp {
+            sizes(maxWidth: 1920, quality: 90, traceSVG: { color: "#021212" }) {
+              ...GatsbyImageSharpSizes_withWebp_tracedSVG
+            }
+            resize(width: 800) {
+              src
             }
           }
         }
-        title {
-          text
-        }
-        subtitle {
-          text
-        }
-        content {
-          html
-        }
+        title
+        type
       }
     }
   }

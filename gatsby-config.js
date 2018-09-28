@@ -13,19 +13,16 @@ module.exports = {
   },
   /* Plugins */
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-emotion',
     {
-      resolve: 'gatsby-source-prismic',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        repositoryName: 'gatsby-starter-portfolio-bella',
-        accessToken: `${process.env.API_KEY}`,
-        linkResolver: ({ node, key, value }) => doc => `/${doc.uid}`,
-        htmlSerializer: ({ node, key, value }) => (type, element, content, children) => {
-          // Your HTML serializer
-        },
+        path: `${__dirname}/src/cases`,
+        name: 'cases',
       },
     },
+    'gatsby-transformer-remark',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-emotion',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-lodash',

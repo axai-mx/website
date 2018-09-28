@@ -11,10 +11,9 @@ const SEO = props => {
   let image;
   let postURL;
   if (caseSEO) {
-    const caseMeta = caseNode.data;
-    title = caseMeta.title.text;
-    description = caseMeta.subtitle.text;
-    image = caseMeta.header_image.localFile.childImageSharp.resize.src;
+    title = caseNode.frontmatter.title;
+    description = caseNode.frontmatter.type;
+    image = caseNode.frontmatter.image.childImageSharp.resize.src;
     postURL = config.siteUrl + config.pathPrefix + casePath;
   } else {
     title = config.siteTitle;

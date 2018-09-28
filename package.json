@@ -19,7 +19,7 @@
     "gatsby-plugin-sitemap": "^2.0.1",
     "gatsby-plugin-typography": "^2.2.0",
     "gatsby-source-filesystem": "^2.0.1",
-    "gatsby-source-prismic": "^2.0.0-alpha.5",
+    "gatsby-transformer-remark": "^2.1.4",
     "gatsby-transformer-sharp": "^2.1.1",
     "grid-emotion": "^3.2.0",
     "lodash": "^4.17.11",
