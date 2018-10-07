@@ -255,13 +255,7 @@ export const pageQuery = graphql`
           frontmatter {
             image {
               childImageSharp {
-                sizes(
-                  maxWidth: 900
-                  maxHeight: 900
-                  quality: 90
-                  traceSVG: { color: "#021212" }
-                  cropFocus: ENTROPY
-                ) {
+                sizes(maxWidth: 900, maxHeight: 900, quality: 90, traceSVG: { color: "#021212" }, cropFocus: ENTROPY) {
                   ...GatsbyImageSharpSizes_withWebp_tracedSVG
                 }
               }
