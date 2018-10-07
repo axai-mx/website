@@ -243,7 +243,10 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    caseStudies: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    caseStudies: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { lang: { eq: "es" } } }
+    ) {
       edges {
         node {
           fields {
