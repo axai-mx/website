@@ -53,8 +53,8 @@ const Footer = ({ isCase, locale, translation }) => {
         ) : (
           <div>
             Copyright &copy; {year} by Axai, forked from{' '}
-            <a href="https://github.com/LeKoArts/gatsby-starter-portfolio-bella">Bella GitHub Repository</a>.
-            Illustrations by <a href="https://undraw.co/illustrations">Undraw</a>.
+            <a href="https://github.com/LeKoArts/gatsby-starter-portfolio-bella">Bella</a>. Illustrations{' '}
+            <a href="https://undraw.co/illustrations">by Undraw</a>.
           </div>
         )}
         <Menu translation={translation} />

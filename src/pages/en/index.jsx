@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'react-emotion';
 import { Flex } from 'grid-emotion';
-import Footer from '../components/Footer';
-import Layout from '../components/Layout';
-import GridItem from '../components/GridItem';
-import BeTheHero from '../images/be_the_hero.svg';
-import DataReport from '../images/data_report.svg';
-import MayTheForce from '../images/may_the_force.svg';
+import Footer from '../../components/Footer';
+import Layout from '../../components/Layout';
+import GridItem from '../../components/GridItem';
+import BeTheHero from '../../images/be_the_hero.svg';
+import DataReport from '../../images/data_report.svg';
+import MayTheForce from '../../images/may_the_force.svg';
 
 const Header = styled.header`
   width: 100%;
-  height: 600px;
+  height: 900px;
   position: relative;
   padding: 1.75rem;
   @media (max-width: ${props => props.theme.breakpoint.s}) {
-    height: 600px;
+    height: 700px;
   }
 `;
 
@@ -33,7 +33,6 @@ const Logo = styled.h2`
 const Hero = styled(Flex)`
   height: 100%;
   text-align: center;
-  background: url(/elias-gray.jpg);
   h1 {
     letter-spacing: 0.2rem;
     line-height: 4.5rem;
@@ -144,11 +143,14 @@ const IndexPage = ({
     caseStudies: { edges },
   },
 }) => (
-  <Layout locale="es">
+  <Layout locale="en">
     <Header>
-      <Logo>Axai</Logo>
+      <Logo>Bella Inc.</Logo>
       <Hero justifyContent="center" alignItems="center" flexDirection="column">
-        <h1>Los expertos en Drupal</h1>
+        <h1>
+          We design and develop <br /> noice web applications.
+        </h1>
+        <h3>Hi, Bella Inc., the human form of the 💯 Emoji.</h3>
       </Hero>
     </Header>
     <Wrapper p={4} mb={[4, 4, 7]} mx="auto" justifyContent="space-between" flexWrap="wrap">
@@ -170,15 +172,15 @@ const IndexPage = ({
             <img src={BeTheHero} alt="Be The Hero" />
           </ServiceImage>
           <ServiceText>
-            <h2>Descubre Drupal</h2>
+            <h2>Discover Drupal</h2>
             <p>
-              Desarrollamos sitios y aplicaciones web en Drupal, el sistema de administración de contenidos. ¿Necesitas
-              saber el cómo, el qué, el porqué y el quién?...
+              We develop websites and web applications using Drupal, THE Content Management System. We have the
+              know-how, along with the know-what, know-why and know-who...
             </p>
             <ul>
-              <li>Flexible</li>
-              <li>Para sitios pequeños y grandes</li>
-              <li>Más que un CMS, es un framework</li>
+              <li>Flexibility</li>
+              <li>For small and big sites</li>
+              <li>More than just a CMS, a Framework</li>
             </ul>
           </ServiceText>
         </Flex>
@@ -187,14 +189,14 @@ const IndexPage = ({
             <img src={DataReport} alt="Data Report" />
           </ServiceImage>
           <ServiceText>
-            <h2>Lo tenemos cubierto</h2>
+            <h2>We've got it covered!</h2>
             <p>
-              Nosotros instalamos, configuramos, implementamos y echamos a andar Drupal desde cero, pero también podemos
-              ayudarte a mejorar un sitio existente, o resolver problemas en instalaciones existentes...
+              We <strong>develop</strong> like we mean it, we take it personal, you name it: we install, configure,
+              develop and deploy Drupal, but we can also help you troubleshoot an existing site...
             </p>
             <ul>
-              <li>Migraciones</li>
-              <li>Optimización de desempeño</li>
+              <li>Migrations</li>
+              <li>Performance optimizations</li>
             </ul>
           </ServiceText>
         </Flex>
@@ -203,14 +205,14 @@ const IndexPage = ({
             <img src={MayTheForce} alt="May the Force" />
           </ServiceImage>
           <ServiceText>
-            <h2>También aplicaciones móviles</h2>
+            <h2>Also mobile apps</h2>
             <p>
-              Pero no solo eso, también desarrollamos aplicaciones móviles utilizando Drupal como backend, de hecho
-              Drupal se comunica perfectamente con una gran cantidad de sistemas...
+              We have a solid portfolio of real customers and we have proven expertise for large and complex sites, but
+              also for quick and simple ones. Want to know more? Give us a call, we can talk...
             </p>
             <ul>
-              <li>Headless drupal</li>
-              <li>iOS y Android</li>
+              <li>Headless Drupal</li>
+              <li>iOS & Android</li>
               <li>E-Commerce</li>
             </ul>
           </ServiceText>
@@ -218,10 +220,10 @@ const IndexPage = ({
       </Wrapper>
     </PrimaryBG>
     <Contact px={4} py={6} justifyContent="center" alignItems="center" flexDirection="column">
-      <h1>¡Contáctanos!</h1>
-      <h3>info@axai.com.mx</h3>
+      <h1>Say hi!</h1>
+      <h3>contact@domain.com</h3>
     </Contact>
-    <Footer translation="/en" />
+    <Footer translation="/" />
   </Layout>
 );
 
@@ -236,10 +238,10 @@ IndexPage.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query IndexEnQuery {
     caseStudies: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { lang: { eq: "es" } } }
+      filter: { frontmatter: { lang: { eq: "en" } } }
     ) {
       edges {
         node {
