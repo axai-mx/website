@@ -76,7 +76,6 @@ const SEO = props => {
       <title>{title}</title>
       <link rel="apple-touch-icon" href="/favicons/axai.png" />
       <link rel="icon" type="image/png" href="/favicons/axai.png" />
-      <link rel="shortcut icon" href="/favicons/axai.png" />
       <meta name="msapplication-TileColor" content="#b710a1" />
       <meta name="msapplication-config" content="browserconfig.xml" />
       <meta name="description" content={description} />
