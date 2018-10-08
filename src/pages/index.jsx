@@ -149,6 +149,15 @@ const IndexPage = ({
       <Logo>Axai</Logo>
       <Hero justifyContent="center" alignItems="center" flexDirection="column">
         <h1>Los expertos en Drupal</h1>
+        <h3>
+          En Axai nos gusta desarrollar aplicaciones móviles y aplicaciones web basadas en la plataforma Drupal, y nos
+          encargamos de hacer que dichas aplicaciones se integren perfectamente con todo aquel sistema externo que sea
+          necesario.
+          <br />
+          <br />
+          Nos especializamos en la migración de sistemas a la plataforma Drupal y en mejorar el rendimiento de sistemas
+          Drupal existentes.
+        </h3>
       </Hero>
     </Header>
     <Wrapper p={4} mb={[4, 4, 7]} mx="auto" justifyContent="space-between" flexWrap="wrap">

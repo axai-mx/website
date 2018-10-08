@@ -12,7 +12,7 @@ import MayTheForce from '../../images/may_the_force.svg';
 
 const Header = styled.header`
   width: 100%;
-  height: 900px;
+  height: 600px;
   position: relative;
   padding: 1.75rem;
   @media (max-width: ${props => props.theme.breakpoint.s}) {
@@ -33,6 +33,7 @@ const Logo = styled.h2`
 const Hero = styled(Flex)`
   height: 100%;
   text-align: center;
+  background: url(/elias-gray.jpg);
   h1 {
     letter-spacing: 0.2rem;
     line-height: 4.5rem;
@@ -145,12 +146,17 @@ const IndexPage = ({
 }) => (
   <Layout locale="en">
     <Header>
-      <Logo>Bella Inc.</Logo>
+      <Logo>Axai</Logo>
       <Hero justifyContent="center" alignItems="center" flexDirection="column">
-        <h1>
-          We design and develop <br /> noice web applications.
-        </h1>
-        <h3>Hi, Bella Inc., the human form of the 💯 Emoji.</h3>
+        <h1>The Drupal experts</h1>
+        <h3>
+          In Axai we like to develop mobile and web applications based on the Drupal platform, We will make sure those
+          applications integrate seamlessly with existing or new systems.
+          <br />
+          <br />
+          We specialize in system migration from other platforms to Drupal, and performance improvement of existing
+          Drupal sites.
+        </h3>
       </Hero>
     </Header>
     <Wrapper p={4} mb={[4, 4, 7]} mx="auto" justifyContent="space-between" flexWrap="wrap">
@@ -221,7 +227,7 @@ const IndexPage = ({
     </PrimaryBG>
     <Contact px={4} py={6} justifyContent="center" alignItems="center" flexDirection="column">
       <h1>Say hi!</h1>
-      <h3>contact@domain.com</h3>
+      <h3>info@axai.com.mx</h3>
     </Contact>
     <Footer translation="/" />
   </Layout>
