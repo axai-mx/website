@@ -13,7 +13,7 @@ const SEO = props => {
   if (caseSEO) {
     title = caseNode.frontmatter.title;
     description = caseNode.frontmatter.type;
-    image = caseNode.frontmatter.image.childImageSharp.resize.src;
+    image = caseNode.frontmatter.image ? caseNode.frontmatter.image.childImageSharp.resize.src : null;
     postURL = config.siteUrl + config.pathPrefix + casePath;
   } else {
     title = config.siteTitle;

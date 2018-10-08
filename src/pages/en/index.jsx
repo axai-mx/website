@@ -247,7 +247,7 @@ export const pageQuery = graphql`
   query IndexEnQuery {
     caseStudies: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { lang: { eq: "en" } } }
+      filter: { fileAbsolutePath: { regex: "/cases.en/" } }
     ) {
       edges {
         node {
