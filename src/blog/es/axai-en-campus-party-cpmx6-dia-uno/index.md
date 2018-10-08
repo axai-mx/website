@@ -1,0 +1,11 @@
+---
+title: "Axai en campus party #CPMX6 Día uno"
+lang: "es"
+tags: []
+date: "2015-07-24T21:53:00.000Z"
+user: "elias"
+aliases: ["blog/axai-en-campus-party-cpmx6-día-uno"]
+image: "campus-party-mexico.png"
+---
+
+<p>El día de hoy Axai estuvo presente en #CPMX6, dando una charla sobre aplicaciones web con mapas, georeferenciación y su integración con CMS como Drupal.</p><p></p><p><a href="https://t.co/neOOVeOIBv">Las diapositivas están disponibles en google drive.</a></p><p></p><p>Aquí algunas fotos:</p><p></p><p>[[{"fid":"1249","view_mode":"teaser","fields":{"format":"teaser","field_file_image_alt_text[und][0][value]":"","field_file_image_title_text[und][0][value]":""},"type":"media","attributes":{"class":"panopoly-image-thumbnail media-element file-preview file-teaser"}}]][[{"fid":"1252","view_mode":"teaser","fields":{"format":"teaser","field_file_image_alt_text[und][0][value]":"","field_file_image_title_text[und][0][value]":""},"type":"media","attributes":{"class":"panopoly-image-quarter media-element file-teaser"}}]][[{"fid":"1251","view_mode":"teaser","fields":{"format":"teaser","field_file_image_alt_text[und][0][value]":"","field_file_image_title_text[und][0][value]":""},"type":"media","attributes":{"class":"panopoly-image-quarter media-element file-teaser"}}]][[{"fid":"1250","view_mode":"teaser","fields":{"format":"teaser","field_file_image_alt_text[und][0][value]":"","field_file_image_title_text[und][0][value]":""},"type":"media","attributes":{"class":"panopoly-image-quarter media-element file-teaser"}}]]</p><p></p><p>[[{"fid":"1253","view_mode":"teaser","fields":{"format":"teaser","field_file_image_alt_text[und][0][value]":"","field_file_image_title_text[und][0][value]":""},"type":"media","attributes":{"class":"panopoly-image-quarter media-element file-teaser"}}]]</p><p></p><p>[[{"fid":"1255","view_mode":"teaser","fields":{"format":"teaser","field_file_image_alt_text[und][0][value]":"","field_file_image_title_text[und][0][value]":""},"type":"media","attributes":{"class":"panopoly-image-quarter media-element file-teaser"}}]]</p><p></p><p></p><p></p><p></p><p></p><p>La presentación se puede ver <a href="https://docs.google.com/presentation/d/1-GT6PO-5rOlU0qQp6FTZuiVg3oSKaq70MrGqOjDlzZ8/">aquí</a>.</p>
