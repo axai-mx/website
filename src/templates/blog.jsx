@@ -12,15 +12,6 @@ import config from '../../config/website';
 
 const Hero = styled.section`
   width: 100%;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  .gatsby-image-outer-wrapper {
-    position: static !important;
-    > div {
-      position: static !important;
-    }
-  }
 `;
 
 const Wrapper = styled(Box)`
@@ -29,10 +20,6 @@ const Wrapper = styled(Box)`
 
 const TitleWrapper = styled(Box)`
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   background: ${props => props.theme.colors.bg};
 `;
 
@@ -96,7 +83,7 @@ const CaseTemplate = ({ data: { markdownRemark: caseNode } }) => (
     <Helmet title={`${caseNode.frontmatter.title} | ${config.siteTitle}`} />
     <SEO caseNode={caseNode} casePath={caseNode.fields.slug} caseSEO />
     <Hero>
-      ({caseNode.frontmatter.image ? <Image sizes={caseNode.frontmatter.image.childImageSharp.sizes} /> : null})
+      {caseNode.frontmatter.image ? <Image sizes={caseNode.frontmatter.image.childImageSharp.sizes} /> : null}
       <TitleWrapper py={4}>
         <Title>{caseNode.frontmatter.title}</Title>
       </TitleWrapper>
@@ -142,7 +129,7 @@ export const pageQuery = graphql`
           }
         }
         title
-        date
+        date(formatString: "DD/MMMM/YYYY")
         user
       }
     }

@@ -1,15 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import styled from 'react-emotion';
-import { Flex } from 'grid-emotion';
+import { graphql, Link } from 'gatsby';
 import Footer from '../../../components/Footer';
 import Layout from '../../../components/Layout';
-import BlogItem from '../../../components/BlogItem';
-
-const Wrapper = styled(Flex)`
-  max-width: ${props => props.theme.maxWidth};
-`;
 
 const IndexPage = ({
   data: {
@@ -17,18 +10,28 @@ const IndexPage = ({
   },
 }) => (
   <Layout locale="es">
-    <h1>Blog</h1>
-    <Wrapper p={4} mb={[4, 4, 7]} mx="auto" justifyContent="space-between" flexWrap="wrap">
-      {edges.map(c => (
-        <BlogItem
-          uid={c.node.fields.slug}
-          key={c.node.fields.slug}
-          title={c.node.frontmatter.title}
-          excerpt={c.node.excerpt}
-          user={c.node.frontmatter.user}
-        />
-      ))}
-    </Wrapper>
+    <div
+      style={{
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        maxWidth: '35rem',
+        padding: '2rem 1rem',
+      }}
+    >
+      <h1>Blog</h1>
+      <div>
+        {edges.map(c => (
+          <div key={c.node.fields.slug}>
+            <Link to={c.node.fields.slug}>
+              <h3 style={{ marginBottom: '0rem' }}>{c.node.frontmatter.title}</h3>
+            </Link>
+            <p>
+              {c.node.frontmatter.date} por {c.node.frontmatter.user}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
     <Footer translation="/en/blog" />
   </Layout>
 );
@@ -51,12 +54,12 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt
           fields {
             slug
           }
           frontmatter {
             title
+            date(formatString: "DD/MMMM/YYYY")
             user
           }
         }
