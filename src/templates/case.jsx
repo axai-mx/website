@@ -91,25 +91,23 @@ const Content = styled.main`
   }
 `;
 
-const CaseTemplate = ({ data: { markdownRemark: caseNode } }) => {
-  return (
-    <Layout>
-      <Helmet title={`${caseNode.frontmatter.title} | ${config.siteTitle}`} />
-      <SEO caseNode={caseNode} casePath={caseNode.fields.slug} caseSEO />
-      <Hero>
-        <Image sizes={caseNode.frontmatter.image.childImageSharp.sizes} />
-        <TitleWrapper py={4}>
-          <Title>{caseNode.frontmatter.title}</Title>
-        </TitleWrapper>
-      </Hero>
-      <Wrapper py={4} px={4} mx="auto">
-        <SubTitle>{caseNode.frontmatter.type}</SubTitle>
-        <Content dangerouslySetInnerHTML={{ __html: caseNode.html }} />
-      </Wrapper>
-      <Footer isCase />
-    </Layout>
-  );
-};
+const CaseTemplate = ({ data: { markdownRemark: caseNode } }) => (
+  <Layout locale={caseNode.frontmatter.lang}>
+    <Helmet title={`${caseNode.frontmatter.title} | ${config.siteTitle}`} />
+    <SEO caseNode={caseNode} casePath={caseNode.fields.slug} caseSEO />
+    <Hero>
+      <Image sizes={caseNode.frontmatter.image.childImageSharp.sizes} />
+      <TitleWrapper py={4}>
+        <Title>{caseNode.frontmatter.title}</Title>
+      </TitleWrapper>
+    </Hero>
+    <Wrapper py={4} px={4} mx="auto">
+      <SubTitle>{caseNode.frontmatter.type}</SubTitle>
+      <Content dangerouslySetInnerHTML={{ __html: caseNode.html }} />
+    </Wrapper>
+    <Footer isCase locale={caseNode.frontmatter.lang} />
+  </Layout>
+);
 
 export default CaseTemplate;
 
@@ -129,6 +127,8 @@ export const pageQuery = graphql`
         slug
       }
       frontmatter {
+        lang
+        translation
         image {
           childImageSharp {
             sizes(maxWidth: 1920, quality: 90, traceSVG: { color: "#021212" }) {

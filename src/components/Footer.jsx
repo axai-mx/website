@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { Link } from 'gatsby';
 import { Flex } from 'grid-emotion';
+import { FormattedMessage } from 'react-intl';
+import Menu from './Menu';
 
 const Wrapper = styled.footer`
   background: ${props => props.theme.colors.greyDark};
@@ -39,15 +41,17 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Footer = ({ isCase }) => {
+const Footer = ({ isCase, locale }) => {
   const year = new Date().getFullYear();
   return (
     <Wrapper>
       <Inner justifyContent="space-between" p={4}>
         {isCase ? (
           <React.Fragment>
-            <StyledLink to="/">Return to home</StyledLink>
-            <div>Contact Us</div>
+            <StyledLink to={`/${locale}`}>
+              <FormattedMessage id="return-to-home" />
+            </StyledLink>
+            <Menu />
           </React.Fragment>
         ) : (
           <React.Fragment>
@@ -56,7 +60,7 @@ const Footer = ({ isCase }) => {
               <a href="https://github.com/LeKoArts/gatsby-starter-portfolio-bella">Bella GitHub Repository</a>.
               Illustrations by <a href="https://undraw.co/illustrations">Undraw</a>.
             </div>
-            <div>Snapchat &mdash; Musicaly &mdash; Twitter</div>
+            <Menu />
           </React.Fragment>
         )}
       </Inner>
@@ -68,8 +72,10 @@ export default Footer;
 
 Footer.propTypes = {
   isCase: PropTypes.bool,
+  locale: PropTypes.string,
 };
 
 Footer.defaultProps = {
   isCase: false,
+  locale: 'es',
 };

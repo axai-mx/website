@@ -143,7 +143,7 @@ const IndexPage = ({
     caseStudies: { edges },
   },
 }) => (
-  <Layout>
+  <Layout locale="es">
     <Header>
       <Logo>Bella Inc.</Logo>
       <Hero justifyContent="center" alignItems="center" flexDirection="column">

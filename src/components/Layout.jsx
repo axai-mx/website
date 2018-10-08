@@ -4,9 +4,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { injectGlobal } from 'emotion';
 import { ThemeProvider } from 'emotion-theming';
+import { IntlProvider, addLocaleData } from 'react-intl';
+import es from 'react-intl/locale-data/es';
+import en from 'react-intl/locale-data/en';
 
-import SEO from '../components/SEO';
+import SEO from './SEO';
 import theme from '../../config/theme';
+import esMessages from '../i18n/es.json';
+import enMessages from '../i18n/en.json';
+
+addLocaleData([...es, ...en]);
 
 injectGlobal`
   *, *:before, *:after {
@@ -90,16 +97,21 @@ injectGlobal`
   }
 `;
 
-const Layout = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <React.Fragment>
-      <SEO />
-      {children}
-    </React.Fragment>
-  </ThemeProvider>
+const messages = { es: esMessages, en: enMessages };
+
+const Layout = ({ locale, children }) => (
+  <IntlProvider locale={locale} messages={messages[locale]}>
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
+        <SEO />
+        {children}
+      </React.Fragment>
+    </ThemeProvider>
+  </IntlProvider>
 );
 
 Layout.propTypes = {
+  locale: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
 };
 
