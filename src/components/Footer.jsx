@@ -47,7 +47,7 @@ const Footer = ({ isCase, locale, translation }) => {
     <Wrapper>
       <Inner justifyContent="space-between" p={4}>
         {isCase ? (
-          <StyledLink to={`/${locale}`}>
+          <StyledLink to={locale === 'es' ? '/' : `/en`}>
             <FormattedMessage id="return-to-home" />
           </StyledLink>
         ) : (
