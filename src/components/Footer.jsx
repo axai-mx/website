@@ -41,28 +41,23 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Footer = ({ isCase, locale }) => {
+const Footer = ({ isCase, locale, translation }) => {
   const year = new Date().getFullYear();
   return (
     <Wrapper>
       <Inner justifyContent="space-between" p={4}>
         {isCase ? (
-          <React.Fragment>
-            <StyledLink to={`/${locale}`}>
-              <FormattedMessage id="return-to-home" />
-            </StyledLink>
-            <Menu />
-          </React.Fragment>
+          <StyledLink to={`/${locale}`}>
+            <FormattedMessage id="return-to-home" />
+          </StyledLink>
         ) : (
-          <React.Fragment>
-            <div>
-              Copyright &copy; {year} by Axai, forked from{' '}
-              <a href="https://github.com/LeKoArts/gatsby-starter-portfolio-bella">Bella GitHub Repository</a>.
-              Illustrations by <a href="https://undraw.co/illustrations">Undraw</a>.
-            </div>
-            <Menu />
-          </React.Fragment>
+          <div>
+            Copyright &copy; {year} by Axai, forked from{' '}
+            <a href="https://github.com/LeKoArts/gatsby-starter-portfolio-bella">Bella GitHub Repository</a>.
+            Illustrations by <a href="https://undraw.co/illustrations">Undraw</a>.
+          </div>
         )}
+        <Menu translation={translation} />
       </Inner>
     </Wrapper>
   );
@@ -73,9 +68,11 @@ export default Footer;
 Footer.propTypes = {
   isCase: PropTypes.bool,
   locale: PropTypes.string,
+  translation: PropTypes.string,
 };
 
 Footer.defaultProps = {
   isCase: false,
   locale: 'es',
+  translation: null,
 };

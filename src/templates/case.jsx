@@ -105,7 +105,7 @@ const CaseTemplate = ({ data: { markdownRemark: caseNode } }) => (
       <SubTitle>{caseNode.frontmatter.type}</SubTitle>
       <Content dangerouslySetInnerHTML={{ __html: caseNode.html }} />
     </Wrapper>
-    <Footer isCase locale={caseNode.frontmatter.lang} />
+    <Footer isCase locale={caseNode.frontmatter.lang} translation={caseNode.frontmatter.translation} />
   </Layout>
 );
 
