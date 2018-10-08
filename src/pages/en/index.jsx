@@ -114,10 +114,10 @@ const IndexPage = ({
       <Wrapper flexDirection="column" p={4} mx="auto">
         <Flex w={1} py={5} justifyContent="space-between" flexWrap="wrap">
           <ServiceImage>
-            <img src={BeTheHero} alt="Be The Hero" />
+            <img src={MayTheForce} alt="May the Force" />
           </ServiceImage>
           <ServiceText>
-            <h2>Discover Drupal</h2>
+            <h2>Discover Drupal, the dark side of CMSs</h2>
             <p>
               We develop websites and web applications using Drupal, THE Content Management System. We have the
               know-how, along with the know-what, know-why and know-who...
@@ -147,7 +147,7 @@ const IndexPage = ({
         </Flex>
         <Flex w={1} py={5} justifyContent="space-between" flexWrap="wrap">
           <ServiceImage>
-            <img src={MayTheForce} alt="May the Force" />
+            <img src={BeTheHero} alt="Be The Hero" />
           </ServiceImage>
           <ServiceText>
             <h2>Also mobile apps</h2>

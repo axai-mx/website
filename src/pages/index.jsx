@@ -115,7 +115,7 @@ const IndexPage = ({
       <Wrapper flexDirection="column" p={4} mx="auto">
         <Flex w={1} py={5} justifyContent="space-between" flexWrap="wrap">
           <ServiceImage>
-            <img src={BeTheHero} alt="Be The Hero" />
+            <img src={MayTheForce} alt="May the Force" />
           </ServiceImage>
           <ServiceText>
             <h2>Descubre Drupal</h2>
@@ -148,7 +148,7 @@ const IndexPage = ({
         </Flex>
         <Flex w={1} py={5} justifyContent="space-between" flexWrap="wrap">
           <ServiceImage>
-            <img src={MayTheForce} alt="May the Force" />
+            <img src={BeTheHero} alt="Be The Hero" />
           </ServiceImage>
           <ServiceText>
             <h2>También aplicaciones móviles</h2>
