@@ -57,7 +57,7 @@ const Footer = ({ isCase, locale, translation }) => {
             <a href="https://undraw.co/illustrations">by Undraw</a>.
           </div>
         )}
-        <Menu translation={translation} />
+        <Menu locale={locale} translation={translation} />
       </Inner>
     </Wrapper>
   );

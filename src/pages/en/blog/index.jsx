@@ -16,7 +16,7 @@ const IndexPage = ({
     caseStudies: { edges },
   },
 }) => (
-  <Layout locale="es">
+  <Layout locale="en">
     <h1>Blog</h1>
     <Wrapper p={4} mb={[4, 4, 7]} mx="auto" justifyContent="space-between" flexWrap="wrap">
       {edges.map(c => (
@@ -29,7 +29,7 @@ const IndexPage = ({
         />
       ))}
     </Wrapper>
-    <Footer translation="/en/blog" />
+    <Footer locale="en" translation="/es/blog" />
   </Layout>
 );
 
@@ -44,10 +44,10 @@ IndexPage.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query BlogQuery {
+  query BlogEnQuery {
     caseStudies: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fileAbsolutePath: { regex: "/blog.es/" } }
+      filter: { fileAbsolutePath: { regex: "/blog.en/" } }
     ) {
       edges {
         node {

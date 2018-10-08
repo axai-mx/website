@@ -3,26 +3,29 @@ import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
-const Menu = ({ translation }) => (
-  <div>
-    {translation ? (
+const Menu = ({ locale, translation }) => {
+  const transLink = translation || `/${locale}`;
+  return (
+    <div>
       <React.Fragment>
-        <Link to={translation}>
+        <Link to={transLink}>
           <FormattedMessage id="translation" />
         </Link>
         <span> | </span>
       </React.Fragment>
-    ) : null}
-    Musicaly | Twitter
-  </div>
-);
+      <Link to={`${locale}/blog`}>Blog</Link> | <Link to="https://twitter.com/axaimx">Twitter</Link>
+    </div>
+  );
+};
 
 export default Menu;
 
 Menu.propTypes = {
+  locale: PropTypes.string,
   translation: PropTypes.string,
 };
 
 Menu.defaultProps = {
+  locale: 'es',
   translation: null,
 };
