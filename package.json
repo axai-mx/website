@@ -46,6 +46,7 @@
   "scripts": {
     "dev": "gatsby develop -o",
     "build": "gatsby build",
+    "deploy": "gatsby build && gh-pages -d public",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore"
   },
@@ -60,6 +61,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.1",
+    "gh-pages": "^2.0.1",
     "prettier": "^1.14.2"
   }
 }
